@@ -16,4 +16,10 @@ database_name = "verb-db"
 database_id = "2b903f68-a865-46c5-934b-66b372ac868a" 
 
 [vars]
-# ADMIN_PASSWORD = "123"
+# ADMIN_PASSWORD = "123"             # 管理员密码
+MOBILE_PAGE_SIZE = 1                # 手机默认显示条数
+MOBILE_OPTIONS = [3, 5, 10]         # 手机可选条数
+PC_PAGE_SIZE = 10                   # PC 默认显示条数
+PC_OPTIONS = [5, 10, 20, 50, 100]   # PC 可选条数
+BATCH_SIZE = 500                    # 批量处理数据大小
+#DEBOUNCE_MS = 300                   # 搜索请求的防抖延迟 (毫秒)

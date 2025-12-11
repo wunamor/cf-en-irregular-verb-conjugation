@@ -200,3 +200,49 @@ export async function exportData(request, env) {
     }
   });
 }
+
+// 8. 获取全局配置 (暴露给前端)
+export async function getConfig(request, env) {
+  // 🛡️ 全能解析函数：兼容 数组对象、JSON字符串、逗号分隔字符串
+  const parseArray = (input, def) => {
+    // 1. 【新增】如果已经是数组 (Cloudflare 后台选了 JSON 类型)，直接返回
+    if (Array.isArray(input)) return input;
+
+    // 2. 如果为空或是其他非字符串类型，返回默认值
+    if (!input || typeof input !== 'string') return def;
+
+    try {
+      // 3. 尝试标准 JSON 解析 (处理 "[5, 10, 20]")
+      return JSON.parse(input);
+    } catch (e) {
+      // 4. 容错解析 (处理 "5, 10, 20" 或 "[5,10,20]")
+      try {
+        // 去掉首尾可能的方括号
+        const cleaned = input.replace(/^\[|\]$/g, '');
+        if (!cleaned.trim()) return def;
+
+        // 分割并转数字
+        const arr = cleaned.split(',').map(s => {
+          const num = parseInt(s.trim());
+          return isNaN(num) ? null : num;
+        }).filter(n => n !== null);
+
+        return arr.length > 0 ? arr : def;
+      } catch (err2) {
+        return def;
+      }
+    }
+  };
+
+  return Response.json({
+    // 优先读取环境变量
+    BATCH_SIZE: env.BATCH_SIZE ? parseInt(env.BATCH_SIZE) : undefined,
+
+    MOBILE_PAGE_SIZE: env.MOBILE_PAGE_SIZE ? parseInt(env.MOBILE_PAGE_SIZE) : undefined,
+    // 这里现在可以完美处理 Cloudflare 后台的 "JSON" 类型变量了
+    MOBILE_OPTIONS: parseArray(env.MOBILE_OPTIONS, undefined),
+
+    PC_PAGE_SIZE: env.PC_PAGE_SIZE ? parseInt(env.PC_PAGE_SIZE) : undefined,
+    PC_OPTIONS: parseArray(env.PC_OPTIONS, undefined),
+  });
+}
