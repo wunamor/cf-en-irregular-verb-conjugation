@@ -190,12 +190,13 @@ export async function search(request, env) {
       countSql = `SELECT count(*) as total FROM verbs WHERE lower(base_word) = lower(?)`;
       countParams = [q];
     } else {
-      // --- 修改点：增加 OR note LIKE ? ---
-      sql = `SELECT * FROM verbs WHERE base_word LIKE ? OR definition LIKE ? OR note LIKE ? ORDER BY base_word ASC LIMIT ? OFFSET ?`;
+      // ⭐ 修改点：增加 OR present_participle LIKE ?
+      sql = `SELECT * FROM verbs WHERE base_word LIKE ? OR definition LIKE ? OR note LIKE ? OR present_participle LIKE ? ORDER BY base_word ASC LIMIT ? OFFSET ?`;
       const pattern = `%${q}%`;
-      params = [pattern, pattern, pattern, limit, offset];
-      countSql = `SELECT count(*) as total FROM verbs WHERE base_word LIKE ? OR definition LIKE ? OR note LIKE ?`;
-      countParams = [pattern, pattern, pattern];
+      // 参数也要对应增加一个 pattern (现在是 4 个匹配项)
+      params = [pattern, pattern, pattern, pattern, limit, offset];
+      countSql = `SELECT count(*) as total FROM verbs WHERE base_word LIKE ? OR definition LIKE ? OR note LIKE ? OR present_participle LIKE ?`;
+      countParams = [pattern, pattern, pattern, pattern];
     }
   }
 
@@ -267,16 +268,15 @@ export async function batchAdd(request, env) {
 
     let sql;
     if (mode === 'update') {
-      // 覆盖模式：如果有重复，直接替换 (REPLACE INTO)
-      sql = `INSERT OR REPLACE INTO verbs (base_word, past_tense, past_participle, definition, note) VALUES (?, ?, ?, ?, ?)`;
+      // ⭐ 修改点：增加 present_participle
+      sql = `INSERT OR REPLACE INTO verbs (base_word, past_tense, past_participle, present_participle, definition, note) VALUES (?, ?, ?, ?, ?, ?)`;
     } else {
-      // 跳过模式：如果有重复，直接忽略 (INSERT OR IGNORE)
-      sql = `INSERT OR IGNORE INTO verbs (base_word, past_tense, past_participle, definition, note) VALUES (?, ?, ?, ?, ?)`;
+      sql = `INSERT OR IGNORE INTO verbs (base_word, past_tense, past_participle, present_participle, definition, note) VALUES (?, ?, ?, ?, ?, ?)`;
     }
 
-    // 将 SQL 语句推入数组，准备批量执行
     statements.push(
-      env.DB.prepare(sql).bind(item.base, item.past, item.part, item.def, item.note)
+      // ⭐ 修改点：绑定 item.present
+      env.DB.prepare(sql).bind(item.base, item.past, item.part, item.present, item.def, item.note)
     );
   }
 
@@ -298,9 +298,10 @@ export async function batchAdd(request, env) {
 export async function update(request, env) {
   if (!checkAuth(request, env)) return new Response('Unauthorized', { status: 401 });
   const data = await request.json();
+  // ⭐ 修改点：增加 present_participle=?
   await env.DB.prepare(
-    'UPDATE verbs SET base_word=?, past_tense=?, past_participle=?, definition=?, note=? WHERE id=?'
-  ).bind(data.base, data.past, data.part, data.def, data.note, data.id).run();
+    'UPDATE verbs SET base_word=?, past_tense=?, past_participle=?, present_participle=?, definition=?, note=? WHERE id=?'
+  ).bind(data.base, data.past, data.part, data.present, data.def, data.note, data.id).run();
   return Response.json({ success: true });
 }
 
@@ -368,14 +369,23 @@ export async function exportData(request, env) {
       sql = `SELECT * FROM verbs WHERE lower(base_word) = lower(?) ORDER BY base_word ASC`;
       params = [q];
     } else {
-      sql = `SELECT * FROM verbs WHERE base_word LIKE ? OR definition LIKE ? OR note LIKE ? ORDER BY base_word ASC`;
+      // ⭐ 修改点：增加 OR present_participle LIKE ?
+      sql = `SELECT * FROM verbs WHERE base_word LIKE ? OR definition LIKE ? OR note LIKE ? OR present_participle LIKE ? ORDER BY base_word ASC`;
       const pattern = `%${q}%`;
-      params = [pattern, pattern, pattern];
+      params = [pattern, pattern, pattern, pattern];
     }
   }
 
   const { results } = await env.DB.prepare(sql).bind(...params).all();
-  const rows = results.map(item => [item.base_word || '', item.past_tense || '', item.past_participle || '', item.definition || '', item.note || ''].join(delim));
+  // ⭐ 修改点：在 map 中加入 item.present_participle
+  const rows = results.map(item => [
+    item.base_word || '',
+    item.past_tense || '',
+    item.past_participle || '',
+    item.present_participle || '', // 新增这一列
+    item.definition || '',
+    item.note || ''
+  ].join(delim));
   const csvContent = '\uFEFF' + rows.join('\n');
 
   return new Response(csvContent, {

@@ -1,57 +1,56 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-	<head>
-		<meta charset="UTF-8" />
-		<meta
-			name="viewport"
-			content="width=device-width, initial-scale=1.0"
-		/>
-		<title>英语动词助手 Pro</title>
-		<link
-			rel="icon"
-			href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%233b82f6%22/><path d=%22M28 38 L50 72 L72 38%22 fill=%22none%22 stroke=%22white%22 stroke-width=%2212%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/><circle cx=%2272%22 cy=%2228%22 r=%228%22 fill=%22%23a5f3fc%22/></svg>"
-		/>
-	</head>
-	<body>
-		<div class="header">
-			<h2 style="margin: 0; display: flex; align-items: center; gap: 12px; font-weight: 700">
-				<svg
-					width="36"
-					height="36"
-					viewBox="0 0 100 100"
-					fill="none"
-					xmlns="http://www.w3.org/2000/svg"
-				>
-					<rect
-						width="100"
-						height="100"
-						rx="24"
-						fill="#3b82f6"
-					/>
-					<path
-						d="M28 38 L50 72 L72 38"
-						stroke="white"
-						stroke-width="12"
-						stroke-linecap="round"
-						stroke-linejoin="round"
-					/>
-					<circle
-						cx="72"
-						cy="28"
-						r="8"
-						fill="#a5f3fc"
-					/>
-				</svg>
-				<span
-					style="
+
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+  <title>英语动词助手 Pro</title>
+  <link
+    rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%233b82f6%22/><path d=%22M28 38 L50 72 L72 38%22 fill=%22none%22 stroke=%22white%22 stroke-width=%2212%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/><circle cx=%2272%22 cy=%2228%22 r=%228%22 fill=%22%23a5f3fc%22/></svg>"
+  />
+</head>
+
+<body>
+  <div class="header">
+    <h2 style="margin: 0; display: flex; align-items: center; gap: 12px; font-weight: 700">
+      <svg
+        width="36"
+        height="36"
+        viewBox="0 0 100 100"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <rect
+          width="100"
+          height="100"
+          rx="24"
+          fill="#3b82f6"
+        />
+        <path
+          d="M28 38 L50 72 L72 38"
+          stroke="white"
+          stroke-width="12"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        <circle
+          cx="72"
+          cy="28"
+          r="8"
+          fill="#a5f3fc"
+        />
+      </svg>
+      <span style="
 						background: linear-gradient(to right, #fff, #94a3b8);
 						-webkit-background-clip: text;
 						color: transparent;
-					"
-				>
-					动词管理器
-					<span
-						style="
+					">
+        动词管理器
+        <span style="
 							font-size: 0.6em;
 							color: #3b82f6;
 							border: 1px solid #3b82f6;
@@ -59,361 +58,359 @@
 							border-radius: 4px;
 							vertical-align: middle;
 							margin-left: 5px;
-						"
-						>Pro</span
-					>
-				</span>
-			</h2>
+						">Pro</span>
+      </span>
+    </h2>
 
-			<div style="display: flex; align-items: center; gap: 10px">
-				<a
-					href="https://github.com/wunamor/cf-en-irregular-verb-conjugation"
-					target="_blank"
-					class="btn btn-outline"
-					style="padding: 10px 10px; border-color: var(--border); border: none"
-					title="GitHub Repository"
-				>
-					<svg
-						height="20"
-						width="20"
-						viewBox="0 0 16 16"
-						fill="currentColor"
-						style="opacity: 0.9"
-					>
-						<path
-							d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"
-						></path>
-					</svg>
-				</a>
-				<button
-					id="loginBtn"
-					class="btn btn-primary"
-					onclick="showLogin()"
-				>
-					管理员登录
-				</button>
-				<button
-					id="logoutBtn"
-					class="btn btn-outline hidden"
-					onclick="confirmLogout()"
-				>
-					退出登录
-				</button>
-			</div>
-		</div>
+    <div style="display: flex; align-items: center; gap: 10px">
+      <a
+        href="https://github.com/wunamor/cf-en-irregular-verb-conjugation"
+        target="_blank"
+        class="btn btn-outline"
+        style="padding: 10px 10px; border-color: var(--border); border: none"
+        title="GitHub Repository"
+      >
+        <svg
+          height="20"
+          width="20"
+          viewBox="0 0 16 16"
+          fill="currentColor"
+          style="opacity: 0.9"
+        >
+          <path
+            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"
+          ></path>
+        </svg>
+      </a>
+      <button
+        id="loginBtn"
+        class="btn btn-primary"
+        onclick="showLogin()"
+      >
+        管理员登录
+      </button>
+      <button
+        id="logoutBtn"
+        class="btn btn-outline hidden"
+        onclick="confirmLogout()"
+      >
+        退出登录
+      </button>
+    </div>
+  </div>
 
-		<div class="card">
-			<div class="search-area">
-				<input
-					id="searchInput"
-					class="input"
-					style="flex: 1"
-					placeholder="搜索原形、释义或备注..."
-					onkeydown="if(event.key==='Enter') resetSearch()"
-				/>
-				<button
-					class="btn btn-primary"
-					onclick="resetSearch()"
-				>
-					查询
-				</button>
-				<button
-					class="btn btn-outline"
-					onclick="showExportModal()"
-				>
-					导出（根据查询结果）
-				</button>
-			</div>
+  <div class="card">
+    <div class="search-area">
+      <input
+        id="searchInput"
+        class="input"
+        style="flex: 1"
+        placeholder="搜索原形、释义或备注..."
+        onkeydown="if(event.key==='Enter') resetSearch()"
+      />
+      <button
+        class="btn btn-primary"
+        onclick="resetSearch()"
+      >
+        查询
+      </button>
+      <button
+        class="btn btn-outline"
+        onclick="showExportModal()"
+      >
+        导出（根据查询结果）
+      </button>
+    </div>
 
-			<div style="margin-top: 15px; font-size: 0.9rem; color: var(--text-sub); display: flex; gap: 20px">
-				<span>匹配模式：</span>
-				<label style="cursor: pointer; display: flex; align-items: center; gap: 5px">
-					<input
-						type="radio"
-						name="mode"
-						value="fuzzy"
-						checked
-						onchange="resetSearch()"
-					/>
-					模糊匹配
-				</label>
-				<label style="cursor: pointer; display: flex; align-items: center; gap: 5px">
-					<input
-						type="radio"
-						name="mode"
-						value="exact"
-						onchange="resetSearch()"
-					/>
-					精确匹配
-				</label>
-			</div>
-		</div>
+    <div style="margin-top: 15px; font-size: 0.9rem; color: var(--text-sub); display: flex; gap: 20px">
+      <span>匹配模式：</span>
+      <label style="cursor: pointer; display: flex; align-items: center; gap: 5px">
+        <input
+          type="radio"
+          name="mode"
+          value="fuzzy"
+          checked
+          onchange="resetSearch()"
+        />
+        模糊匹配
+      </label>
+      <label style="cursor: pointer; display: flex; align-items: center; gap: 5px">
+        <input
+          type="radio"
+          name="mode"
+          value="exact"
+          onchange="resetSearch()"
+        />
+        精确匹配
+      </label>
+    </div>
+  </div>
 
-		<div
-			id="resultArea"
-			class="hidden"
-		>
-			<div
-				class="card"
-				style="padding: 0; overflow: hidden"
-			>
-				<div id="tableContainer"></div>
+  <div
+    id="resultArea"
+    class="hidden"
+  >
+    <div
+      class="card"
+      style="padding: 0; overflow: hidden"
+    >
+      <div id="tableContainer"></div>
 
-				<div
-					class="footer"
-					style="padding: 15px"
-				>
-					<div class="flex">
-						<span style="color: var(--text-sub); font-size: 0.9rem">每页显示:</span>
-						<select
-							id="pageSize"
-							style="width: 70px; padding: 4px"
-							class="input"
-							onchange="resetSearch()"
-						>
-							<option value="5">5</option>
-							<option
-								value="10"
-								selected
-							>
-								10
-							</option>
-							<option value="20">20</option>
-							<option value="50">50</option>
-						</select>
-					</div>
+      <div
+        class="footer"
+        style="padding: 15px"
+      >
+        <div class="flex">
+          <span style="color: var(--text-sub); font-size: 0.9rem">每页显示:</span>
+          <select
+            id="pageSize"
+            style="width: 70px; padding: 4px"
+            class="input"
+            onchange="resetSearch()"
+          >
+            <option value="5">5</option>
+            <option
+              value="10"
+              selected
+            >
+              10
+            </option>
+            <option value="20">20</option>
+            <option value="50">50</option>
+          </select>
+        </div>
 
-					<div
-						class="page-ctrl"
-						id="pagination"
-					></div>
-				</div>
-			</div>
-		</div>
+        <div
+          class="page-ctrl"
+          id="pagination"
+        ></div>
+      </div>
+    </div>
+  </div>
 
-		<div
-			id="adminPanel"
-			class="hidden"
-		>
-			<div
-				class="flex"
-				style="margin-bottom: 15px"
-			>
-				<button
-					class="btn btn-primary"
-					onclick="switchTab('single')"
-				>
-					单条添加
-				</button>
-				<button
-					class="btn btn-outline"
-					onclick="switchTab('batch')"
-				>
-					批量导入
-				</button>
-			</div>
+  <div
+    id="adminPanel"
+    class="hidden"
+  >
+    <div
+      class="flex"
+      style="margin-bottom: 15px"
+    >
+      <button
+        class="btn btn-primary"
+        onclick="switchTab('single')"
+      >
+        单条添加
+      </button>
+      <button
+        class="btn btn-outline"
+        onclick="switchTab('batch')"
+      >
+        批量导入
+      </button>
+    </div>
 
-			<div
-				id="tab-single"
-				class="card"
-			>
-				<h3 style="margin-top: 0">✏️ 编辑/添加</h3>
-				<input
-					type="hidden"
-					id="editId"
-				/>
+    <div
+      id="tab-single"
+      class="card"
+    >
+      <h3 style="margin-top: 0">✏️ 编辑/添加</h3>
+      <input
+        type="hidden"
+        id="editId"
+      />
 
-				<div
-					class="flex"
-					style="margin-bottom: 15px"
-				>
-					<input
-						id="base"
-						class="input"
-						placeholder="原形 (Base)"
-					/>
-					<input
-						id="past"
-						class="input"
-						placeholder="过去式 (Past)"
-					/>
-				</div>
+      <div
+        class="flex"
+        style="margin-bottom: 15px"
+      >
+        <input
+          id="base"
+          class="input"
+          placeholder="原形 (Base)"
+        />
+        <input
+          id="past"
+          class="input"
+          placeholder="过去式 (Past)"
+        />
+      </div>
 
-				<div
-					class="flex"
-					style="margin-bottom: 15px"
-				>
-					<input
-						id="part"
-						class="input"
-						placeholder="过去分词 (Participle)"
-					/>
-					<input
-						id="def"
-						class="input"
-						placeholder="中文释义"
-					/>
-				</div>
+      <div
+        class="flex"
+        style="margin-bottom: 15px"
+      >
+        <input
+          id="part"
+          class="input"
+          placeholder="过去分词 (Participle)"
+        >
+        <input
+          id="present"
+          class="input"
+          placeholder="现在分词 (Present Participle)"
+        >
+      </div>
 
-				<input
-					id="note"
-					class="input"
-					placeholder="备注"
-					style="margin-bottom: 15px"
-				/>
+      <input
+        id="def"
+        class="input"
+        placeholder="中文释义"
+        style="margin-bottom: 15px"
+      >
 
-				<div class="flex">
-					<button
-						class="btn btn-primary"
-						onclick="saveSingle()"
-					>
-						提交保存
-					</button>
-					<button
-						id="cancelEdit"
-						class="btn btn-outline hidden"
-						onclick="resetForm()"
-					>
-						取消编辑
-					</button>
-				</div>
-			</div>
-			<div
-				id="tab-batch"
-				class="card hidden"
-			>
-				<h3 style="margin-top: 0">📂 文件批量导入</h3>
+      <input
+        id="note"
+        class="input"
+        placeholder="备注"
+        style="margin-bottom: 15px"
+      />
 
-				<div class="import-box">
-					<div class="import-row">
-						<div class="import-col">
-							<label style="color: var(--text-sub); font-size: 0.8rem; display: block; margin-bottom: 5px"
-								>1. 选择文件 (.txt/.csv)</label
-							>
-							<input
-								type="file"
-								id="fileInput"
-								class="input"
-								style="padding: 8px"
-								accept=".txt,.csv"
-								onchange="parseFile()"
-							/>
-						</div>
-						<div class="import-col">
-							<label style="color: var(--text-sub); font-size: 0.8rem; display: block; margin-bottom: 5px"
-								>2. 分隔符</label
-							>
-							<div
-								class="flex"
-								style="flex-wrap: nowrap"
-							>
-								<select
-									id="delimSelect"
-									class="input"
-									onchange="handleDelim()"
-								>
-									<option value="custom">自定义</option>
-									<option value=",">逗号 (,)</option>
-									<option value="	">Tab (制表符)</option>
-									<option value="|">竖线 (|)</option>
-								</select>
-								<input
-									id="customDelim"
-									class="input"
-									placeholder="符号"
-									value=","
-									style="width: 80px; text-align: center"
-									oninput="parseFile()"
-								/>
-							</div>
-						</div>
-					</div>
+      <div class="flex">
+        <button
+          class="btn btn-primary"
+          onclick="saveSingle()"
+        >
+          提交保存
+        </button>
+        <button
+          id="cancelEdit"
+          class="btn btn-outline hidden"
+          onclick="resetForm()"
+        >
+          取消编辑
+        </button>
+      </div>
+    </div>
+    <div
+      id="tab-batch"
+      class="card hidden"
+    >
+      <h3 style="margin-top: 0">📂 文件批量导入</h3>
 
-					<div style="margin-top: 15px; border-top: 1px solid var(--border); padding-top: 10px">
-						<label style="color: var(--text-sub); font-size: 0.9rem">遇到重复时：</label>
-						<label style="margin-left: 10px; cursor: pointer"
-							><input
-								type="radio"
-								name="importMode"
-								value="skip"
-								checked
-							/>
-							跳过</label
-						>
-						<label style="margin-left: 10px; cursor: pointer"
-							><input
-								type="radio"
-								name="importMode"
-								value="update"
-							/>
-							覆盖</label
-						>
-					</div>
-				</div>
+      <div class="import-box">
+        <div class="import-row">
+          <div class="import-col">
+            <label style="color: var(--text-sub); font-size: 0.8rem; display: block; margin-bottom: 5px">1. 选择文件
+              (.txt/.csv)</label>
+            <input
+              type="file"
+              id="fileInput"
+              class="input"
+              style="padding: 8px"
+              accept=".txt,.csv"
+              onchange="parseFile()"
+            />
+          </div>
+          <div class="import-col">
+            <label style="color: var(--text-sub); font-size: 0.8rem; display: block; margin-bottom: 5px">2. 分隔符</label>
+            <div
+              class="flex"
+              style="flex-wrap: nowrap"
+            >
+              <select
+                id="delimSelect"
+                class="input"
+                onchange="handleDelim()"
+              >
+                <option value="custom">自定义</option>
+                <option value=",">逗号 (,)</option>
+                <option value="	">Tab (制表符)</option>
+                <option value="|">竖线 (|)</option>
+              </select>
+              <input
+                id="customDelim"
+                class="input"
+                placeholder="符号"
+                value=","
+                style="width: 80px; text-align: center"
+                oninput="parseFile()"
+              />
+            </div>
+          </div>
+        </div>
 
-				<div
-					id="mappingArea"
-					class="hidden"
-					style="margin-top: 20px"
-				>
-					<h4 style="margin-bottom: 15px; color: var(--text-sub)">3. 字段匹配预览</h4>
-					<div id="mappingContainer"></div>
+        <div style="margin-top: 15px; border-top: 1px solid var(--border); padding-top: 10px">
+          <label style="color: var(--text-sub); font-size: 0.9rem">遇到重复时：</label>
+          <label style="margin-left: 10px; cursor: pointer"><input
+              type="radio"
+              name="importMode"
+              value="skip"
+              checked
+            />
+            跳过</label>
+          <label style="margin-left: 10px; cursor: pointer"><input
+              type="radio"
+              name="importMode"
+              value="update"
+            />
+            覆盖</label>
+        </div>
+      </div>
 
-					<div style="margin-top: 20px">
-						<div
-							id="importProgressBar"
-							class="progress-track hidden"
-							style="margin-bottom: 10px"
-						>
-							<div
-								id="importProgressFill"
-								class="progress-fill"
-							></div>
-						</div>
+      <div
+        id="mappingArea"
+        class="hidden"
+        style="margin-top: 20px"
+      >
+        <h4 style="margin-bottom: 15px; color: var(--text-sub)">3. 字段匹配预览</h4>
+        <div id="mappingContainer"></div>
 
-						<div style="text-align: right">
-							<span
-								id="importStatus"
-								style="margin-right: 10px; color: var(--text-sub); font-size: 0.9rem"
-							></span>
-							<button
-								id="btnStartImport"
-								class="btn btn-primary"
-								onclick="executeImport()"
-							>
-								开始导入
-							</button>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+        <div style="margin-top: 20px">
+          <div
+            id="importProgressBar"
+            class="progress-track hidden"
+            style="margin-bottom: 10px"
+          >
+            <div
+              id="importProgressFill"
+              class="progress-fill"
+            ></div>
+          </div>
 
-		<div
-			id="loginModal"
-			class="modal-mask hidden"
-		>
-			<div class="modal">
-				<h3 class="modal-title">🔐 管理员登录</h3>
-				<div class="modal-body">
-					<input
-						type="password"
-						id="modalPass"
-						class="input"
-						placeholder="请输入密码"
-						style="margin-bottom: 15px"
-					/>
+          <div style="text-align: right">
+            <span
+              id="importStatus"
+              style="margin-right: 10px; color: var(--text-sub); font-size: 0.9rem"
+            ></span>
+            <button
+              id="btnStartImport"
+              class="btn btn-primary"
+              onclick="executeImport()"
+            >
+              开始导入
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-					<p style="margin-bottom: 5px; color: var(--text-sub); font-size: 0.9rem">验证码（点击图片刷新）：</p>
-					<div
-						class="flex"
-						style="justify-content: space-between; align-items: center; margin-bottom: 15px"
-					>
-						<div
-							id="loginCaptchaImage"
-							onclick="refreshLoginCaptcha()"
-							title="点击刷新"
-							style="
+  <div
+    id="loginModal"
+    class="modal-mask hidden"
+  >
+    <div class="modal">
+      <h3 class="modal-title">🔐 管理员登录</h3>
+      <div class="modal-body">
+        <input
+          type="password"
+          id="modalPass"
+          class="input"
+          placeholder="请输入密码"
+          style="margin-bottom: 15px"
+        />
+
+        <p style="margin-bottom: 5px; color: var(--text-sub); font-size: 0.9rem">验证码（点击图片刷新）：</p>
+        <div
+          class="flex"
+          style="justify-content: space-between; align-items: center; margin-bottom: 15px"
+        >
+          <div
+            id="loginCaptchaImage"
+            onclick="refreshLoginCaptcha()"
+            title="点击刷新"
+            style="
 								width: 120px;
 								height: 40px;
 								display: flex;
@@ -423,152 +420,152 @@
 								background: #f1f5f9;
 								border-radius: 4px;
 							"
-						>
-							<span style="font-size: 0.8rem; color: #64748b">Loading...</span>
-						</div>
-						<input
-							type="text"
-							id="loginCaptchaInput"
-							class="input"
-							style="width: 80px; text-align: center"
-							placeholder="?"
-							onkeydown="if(event.key==='Enter') confirmLogin()"
-						/>
-					</div>
-					<input
-						type="hidden"
-						id="loginCaptchaToken"
-					/>
-				</div>
-				<div class="modal-btns">
-					<button
-						class="btn btn-outline"
-						onclick="closeModal('loginModal')"
-					>
-						取消
-					</button>
-					<button
-						class="btn btn-primary"
-						onclick="confirmLogin()"
-					>
-						登录
-					</button>
-				</div>
-			</div>
-		</div>
+          >
+            <span style="font-size: 0.8rem; color: #64748b">Loading...</span>
+          </div>
+          <input
+            type="text"
+            id="loginCaptchaInput"
+            class="input"
+            style="width: 80px; text-align: center"
+            placeholder="?"
+            onkeydown="if(event.key==='Enter') confirmLogin()"
+          />
+        </div>
+        <input
+          type="hidden"
+          id="loginCaptchaToken"
+        />
+      </div>
+      <div class="modal-btns">
+        <button
+          class="btn btn-outline"
+          onclick="closeModal('loginModal')"
+        >
+          取消
+        </button>
+        <button
+          class="btn btn-primary"
+          onclick="confirmLogin()"
+        >
+          登录
+        </button>
+      </div>
+    </div>
+  </div>
 
-		<div
-			id="confirmModal"
-			class="modal-mask hidden"
-		>
-			<div class="modal">
-				<h3
-					class="modal-title"
-					id="confirmTitle"
-				>
-					确认操作
-				</h3>
-				<div
-					class="modal-body"
-					id="confirmMsg"
-				>
-					确定要执行此操作吗？
-				</div>
-				<div class="modal-btns">
-					<button
-						class="btn btn-outline"
-						onclick="closeModal('confirmModal')"
-					>
-						取消
-					</button>
-					<button
-						class="btn btn-danger"
-						id="confirmActionBtn"
-					>
-						确定
-					</button>
-				</div>
-			</div>
-		</div>
+  <div
+    id="confirmModal"
+    class="modal-mask hidden"
+  >
+    <div class="modal">
+      <h3
+        class="modal-title"
+        id="confirmTitle"
+      >
+        确认操作
+      </h3>
+      <div
+        class="modal-body"
+        id="confirmMsg"
+      >
+        确定要执行此操作吗？
+      </div>
+      <div class="modal-btns">
+        <button
+          class="btn btn-outline"
+          onclick="closeModal('confirmModal')"
+        >
+          取消
+        </button>
+        <button
+          class="btn btn-danger"
+          id="confirmActionBtn"
+        >
+          确定
+        </button>
+      </div>
+    </div>
+  </div>
 
-		<div
-			id="toast"
-			class="toast"
-		>
-			操作成功
-		</div>
+  <div
+    id="toast"
+    class="toast"
+  >
+    操作成功
+  </div>
 
-		<div
-			id="exportModal"
-			class="modal-mask hidden"
-		>
-			<div class="modal">
-				<h3 class="modal-title">📤 导出数据</h3>
-				<div class="modal-body">
-					<label style="display: block; margin-bottom: 10px; color: var(--text-sub)">选择分隔符：</label>
+  <div
+    id="exportModal"
+    class="modal-mask hidden"
+  >
+    <div class="modal">
+      <h3 class="modal-title">📤 导出数据</h3>
+      <div class="modal-body">
+        <label style="display: block; margin-bottom: 10px; color: var(--text-sub)">选择分隔符：</label>
 
-					<div class="export-input-group">
-						<select
-							id="exportDelimSelect"
-							class="input"
-							onchange="toggleExportCustom()"
-						>
-							<option value=",">逗号 (CSV 默认)</option>
-							<option value="	">Tab (制表符)</option>
-							<option value="|">竖线 (|)</option>
-							<option value="custom">自定义</option>
-						</select>
-						<input
-							id="exportCustomDelim"
-							class="input hidden"
-							placeholder="输入符号"
-						/>
-					</div>
-					<p style="margin-top: 15px; font-size: 0.85rem; color: var(--text-sub)">
-						* 导出将包含当前搜索条件下的所有结果。<br />
-						* 空字段将保留占位符 (例如: lie,lied,,备注)
-					</p>
-				</div>
-				<div class="modal-btns">
-					<button
-						class="btn btn-outline"
-						onclick="closeModal('exportModal')"
-					>
-						取消
-					</button>
-					<button
-						id="btnExecuteExport"
-						class="btn btn-primary"
-						onclick="executeExport()"
-					>
-						确认导出
-					</button>
-				</div>
-			</div>
-		</div>
+        <div class="export-input-group">
+          <select
+            id="exportDelimSelect"
+            class="input"
+            onchange="toggleExportCustom()"
+          >
+            <option value=",">逗号 (CSV 默认)</option>
+            <option value="	">Tab (制表符)</option>
+            <option value="|">竖线 (|)</option>
+            <option value="custom">自定义</option>
+          </select>
+          <input
+            id="exportCustomDelim"
+            class="input hidden"
+            placeholder="输入符号"
+          />
+        </div>
+        <p style="margin-top: 15px; font-size: 0.85rem; color: var(--text-sub)">
+          * 导出将包含当前搜索条件下的所有结果。<br />
+          * 空字段将保留占位符 (例如: lie,lied,,备注)
+        </p>
+      </div>
+      <div class="modal-btns">
+        <button
+          class="btn btn-outline"
+          onclick="closeModal('exportModal')"
+        >
+          取消
+        </button>
+        <button
+          id="btnExecuteExport"
+          class="btn btn-primary"
+          onclick="executeExport()"
+        >
+          确认导出
+        </button>
+      </div>
+    </div>
+  </div>
 
-		<div
-			id="captchaModal"
-			class="modal-mask hidden"
-			style="z-index: 2000"
-		>
-			<div
-				class="modal"
-				style="max-width: 320px"
-			>
-				<h3 class="modal-title">🤖 人机验证</h3>
-				<div class="modal-body">
-					<p style="margin-bottom: 10px; color: var(--text-sub)">请输入计算结果（点击图片刷新）：</p>
+  <div
+    id="captchaModal"
+    class="modal-mask hidden"
+    style="z-index: 2000"
+  >
+    <div
+      class="modal"
+      style="max-width: 320px"
+    >
+      <h3 class="modal-title">🤖 人机验证</h3>
+      <div class="modal-body">
+        <p style="margin-bottom: 10px; color: var(--text-sub)">请输入计算结果（点击图片刷新）：</p>
 
-					<div
-						class="flex"
-						style="justify-content: space-between; align-items: center; margin-bottom: 15px"
-					>
-						<div
-							id="captchaImage"
-							onclick="openCaptchaModal()"
-							title="看不清？点击刷新"
-							style="
+        <div
+          class="flex"
+          style="justify-content: space-between; align-items: center; margin-bottom: 15px"
+        >
+          <div
+            id="captchaImage"
+            onclick="openCaptchaModal()"
+            title="看不清？点击刷新"
+            style="
 								width: 120px;
 								height: 40px;
 								display: flex;
@@ -578,484 +575,542 @@
 								background: #f1f5f9;
 								border-radius: 4px;
 							"
-						>
-							<span style="font-size: 0.8rem; color: #64748b">Loading...</span>
-						</div>
+          >
+            <span style="font-size: 0.8rem; color: #64748b">Loading...</span>
+          </div>
 
-						<input
-							type="text"
-							id="captchaInput"
-							class="input"
-							style="width: 80px; text-align: center"
-							placeholder="?"
-							onkeydown="if(event.key==='Enter') submitCaptchaExport()"
-						/>
-					</div>
+          <input
+            type="text"
+            id="captchaInput"
+            class="input"
+            style="width: 80px; text-align: center"
+            placeholder="?"
+            onkeydown="if(event.key==='Enter') submitCaptchaExport()"
+          />
+        </div>
 
-					<input
-						type="hidden"
-						id="captchaToken"
-					/>
+        <input
+          type="hidden"
+          id="captchaToken"
+        />
 
-					<div class="modal-btns">
-						<button
-							class="btn btn-outline"
-							onclick="closeModal('captchaModal')"
-						>
-							取消
-						</button>
-						<button
-							id="btnSubmitCaptcha"
-							class="btn btn-primary"
-							onclick="submitCaptchaExport()"
-						>
-							确认
-						</button>
-					</div>
-				</div>
-			</div>
-		</div>
-		<script src="script.js"></script>
-	</body>
+        <div class="modal-btns">
+          <button
+            class="btn btn-outline"
+            onclick="closeModal('captchaModal')"
+          >
+            取消
+          </button>
+          <button
+            id="btnSubmitCaptcha"
+            class="btn btn-primary"
+            onclick="submitCaptchaExport()"
+          >
+            确认
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+
 </html>
 
 <style>
-	:root {
-		--bg-body: #0f172a; /* 深蓝黑背景 */
-		--bg-card: #1e293b; /* 卡片背景 */
-		--bg-hover: #334155; /* 悬停高亮 */
-		--text-main: #f8fafc; /* 主文字 */
-		--text-sub: #94a3b8; /* 副文字 */
-		--primary: #3b82f6; /* 亮蓝色 */
-		--primary-hover: #2563eb;
-		--danger: #ef4444; /* 红色 */
-		--border: #334155; /* 边框色 */
-		--input-bg: #0f172a; /* 输入框背景 */
-	}
+  :root {
+    --bg-body: #0f172a;
+    /* 深蓝黑背景 */
+    --bg-card: #1e293b;
+    /* 卡片背景 */
+    --bg-hover: #334155;
+    /* 悬停高亮 */
+    --text-main: #f8fafc;
+    /* 主文字 */
+    --text-sub: #94a3b8;
+    /* 副文字 */
+    --primary: #3b82f6;
+    /* 亮蓝色 */
+    --primary-hover: #2563eb;
+    --danger: #ef4444;
+    /* 红色 */
+    --border: #334155;
+    /* 边框色 */
+    --input-bg: #0f172a;
+    /* 输入框背景 */
+  }
 
-	body {
-		font-family: 'Segoe UI', system-ui, sans-serif;
-		background: var(--bg-body);
-		color: var(--text-main);
-		padding: 20px;
-		max-width: 1000px;
-		margin: 0 auto;
-		line-height: 1.6;
-	}
+  body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: var(--bg-body);
+    color: var(--text-main);
+    padding: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
 
-	/* --- 核心组件 --- */
-	.card {
-		background: var(--bg-card);
-		border: 1px solid var(--border);
-		border-radius: 10px;
-		padding: 20px;
-		margin-bottom: 20px;
-		box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
-	}
+  /* --- 核心组件 --- */
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+  }
 
-	.btn {
-		padding: 8px 16px;
-		border-radius: 6px;
-		border: 1px solid transparent;
-		cursor: pointer;
-		font-size: 0.9rem;
-		transition: 0.2s;
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		font-weight: 500;
-		white-space: nowrap;
-	}
-	.btn-primary {
-		background: var(--primary);
-		color: white;
-	}
-	.btn-primary:hover {
-		background: var(--primary-hover);
-	}
-	.btn-danger {
-		background: rgba(239, 68, 68, 0.15);
-		color: #fca5a5;
-		border: 1px solid var(--danger);
-	}
-	.btn-danger:hover {
-		background: var(--danger);
-		color: white;
-	}
-	.btn-outline {
-		background: transparent;
-		border: 1px solid var(--border);
-		color: var(--text-sub);
-	}
-	.btn-outline:hover {
-		border-color: var(--text-main);
-		color: var(--text-main);
-		background: var(--bg-hover);
-	}
-	.btn-sm {
-		padding: 4px 10px;
-		font-size: 0.8rem;
-		margin-left: 5px;
-	}
-	.btn:disabled {
-		opacity: 0.6;
-		cursor: not-allowed;
-	}
+  .btn {
+    padding: 8px 16px;
+    border-radius: 6px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: 0.2s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    white-space: nowrap;
+  }
 
-	.input,
-	select {
-		background: var(--input-bg);
-		border: 1px solid var(--border);
-		color: white;
-		padding: 10px;
-		border-radius: 6px;
-		width: 100%;
-		box-sizing: border-box;
-		outline: none;
-		transition: border-color 0.2s;
-	}
-	.input:focus {
-		border-color: var(--primary);
-	}
-	select {
-		cursor: pointer;
-	}
+  .btn-primary {
+    background: var(--primary);
+    color: white;
+  }
 
-	/* 通用 Flex 布局 (PC默认横向) */
-	.flex {
-		display: flex;
-		gap: 10px;
-		align-items: center;
-		flex-wrap: wrap;
-	}
-	.hidden {
-		display: none !important;
-	}
-	.text-primary {
-		color: var(--primary);
-		font-weight: 600;
-	}
+  .btn-primary:hover {
+    background: var(--primary-hover);
+  }
 
-	/* --- 顶部与搜索 --- */
-	/* 核心修复：justify-content: space-between 确保左右对齐 */
-	.header {
-		display: flex;
-		justify-content: space-between;
-		margin-bottom: 20px;
-		align-items: center;
-	}
-	.search-area {
-		display: flex;
-		gap: 10px;
-		width: 100%;
-	}
+  .btn-danger {
+    background: rgba(239, 68, 68, 0.15);
+    color: #fca5a5;
+    border: 1px solid var(--danger);
+  }
 
-	/* --- 表格样式 --- */
-	table {
-		width: 100%;
-		border-collapse: collapse;
-		margin-top: 5px;
-	}
-	th {
-		text-align: left;
-		background: #0f172a;
-		padding: 12px;
-		color: var(--text-sub);
-		font-size: 0.85rem;
-		border-bottom: 2px solid var(--border);
-		font-weight: 600;
-	}
-	td {
-		padding: 14px 12px;
-		border-bottom: 1px solid var(--border);
-		font-size: 0.95rem;
-		color: #e2e8f0;
-	}
-	tr:hover td {
-		background: var(--bg-hover);
-	}
+  .btn-danger:hover {
+    background: var(--danger);
+    color: white;
+  }
 
-	input[type='checkbox'] {
-		accent-color: var(--primary);
-		width: 16px;
-		height: 16px;
-		cursor: pointer;
-	}
+  .btn-outline {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-sub);
+  }
 
-	/* --- 分页栏 (核心修复：默认横向) --- */
-	.footer {
-		display: flex;
-		justify-content: space-between; /* 左右分布 */
-		align-items: center;
-		margin-top: 20px;
-		padding-top: 15px;
-		border-top: 1px solid var(--border);
-	}
-	.page-ctrl {
-		display: flex;
-		gap: 8px;
-		align-items: center;
-	}
+  .btn-outline:hover {
+    border-color: var(--text-main);
+    color: var(--text-main);
+    background: var(--bg-hover);
+  }
 
-	.page-btn {
-		min-width: 32px;
-		height: 32px;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		border: 1px solid var(--border);
-		border-radius: 4px;
-		cursor: pointer;
-		color: var(--text-sub);
-		background: var(--bg-body);
-		user-select: none;
-		font-size: 0.9rem;
-		transition: all 0.2s;
-	}
-	.page-btn:hover:not(.active) {
-		border-color: var(--text-main);
-		color: var(--text-main);
-	}
+  .btn-sm {
+    padding: 4px 10px;
+    font-size: 0.8rem;
+    margin-left: 5px;
+  }
 
-	/* 核心修复：激活状态样式必须足够强 */
-	.page-btn.active {
-		background: var(--primary) !important;
-		border-color: var(--primary) !important;
-		color: white !important;
-		font-weight: bold;
-	}
-	.page-input {
-		width: 45px;
-		text-align: center;
-		padding: 4px;
-		height: 32px;
-		font-size: 0.9rem;
-	}
+  .btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
 
-	/* --- 导入面板 --- */
-	.import-box {
-		background: #0f172a;
-		padding: 15px;
-		border-radius: 8px;
-		border: 1px solid var(--border);
-	}
-	/* PC端导入行默认横向 */
-	.import-row {
-		display: flex;
-		gap: 15px;
-		margin-bottom: 15px;
-	}
-	.import-col {
-		flex: 1;
-		min-width: 200px;
-	}
+  .input,
+  select {
+    background: var(--input-bg);
+    border: 1px solid var(--border);
+    color: white;
+    padding: 10px;
+    border-radius: 6px;
+    width: 100%;
+    box-sizing: border-box;
+    outline: none;
+    transition: border-color 0.2s;
+  }
 
-	.mapping-row {
-		display: grid;
-		grid-template-columns: 100px 1fr;
-		gap: 15px;
-		align-items: center;
-		margin-bottom: 10px;
-	}
-	.mapping-label {
-		text-align: right;
-		color: var(--text-sub);
-		font-size: 0.9rem;
-	}
+  .input:focus {
+    border-color: var(--primary);
+  }
 
-	/* --- 弹窗 (Modal) --- */
-	.modal-mask {
-		position: fixed;
-		inset: 0;
-		background: rgba(0, 0, 0, 0.6);
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		z-index: 999;
-		backdrop-filter: blur(3px);
-	}
-	.modal {
-		background: var(--bg-card);
-		width: 450px;
-		padding: 25px;
-		border-radius: 12px;
-		border: 1px solid var(--border);
-		box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
-		animation: popIn 0.2s ease-out;
-	}
-	@keyframes popIn {
-		from {
-			opacity: 0;
-			transform: scale(0.95);
-		}
-		to {
-			opacity: 1;
-			transform: scale(1);
-		}
-	}
+  select {
+    cursor: pointer;
+  }
 
-	.modal-title {
-		margin: 0 0 10px 0;
-		font-size: 1.1rem;
-		color: var(--text-main);
-	}
-	.modal-body {
-		color: var(--text-sub);
-		margin-bottom: 25px;
-		font-size: 0.95rem;
-		line-height: 1.6;
-	}
-	.modal-btns {
-		display: flex;
-		justify-content: flex-end;
-		gap: 10px;
-	}
+  /* 通用 Flex 布局 (PC默认横向) */
+  .flex {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
 
-	/* --- Toast --- */
-	.toast {
-		position: fixed;
-		top: 20px;
-		right: 20px;
-		background: #10b981;
-		color: white;
-		padding: 12px 24px;
-		border-radius: 8px;
-		transform: translateY(-100px);
-		transition: 0.3s;
-		z-index: 1000;
-		box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
-	}
-	.toast.show {
-		transform: translateY(0);
-	}
-	.toast.error {
-		background: var(--danger);
-	}
+  .hidden {
+    display: none !important;
+  }
 
-	/* 进度条 */
-	.progress-track {
-		background: var(--bg-body);
-		border: 1px solid var(--border);
-		height: 10px;
-		border-radius: 5px;
-		overflow: hidden;
-		margin: 10px 0;
-	}
-	.progress-fill {
-		background: var(--primary);
-		height: 100%;
-		width: 0%;
-		transition: width 0.3s;
-	}
+  .text-primary {
+    color: var(--primary);
+    font-weight: 600;
+  }
 
-	/* =========================================
+  /* --- 顶部与搜索 --- */
+  /* 核心修复：justify-content: space-between 确保左右对齐 */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    align-items: center;
+  }
+
+  .search-area {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+  }
+
+  /* --- 表格样式 --- */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 5px;
+  }
+
+  th {
+    text-align: left;
+    background: #0f172a;
+    padding: 12px;
+    color: var(--text-sub);
+    font-size: 0.85rem;
+    border-bottom: 2px solid var(--border);
+    font-weight: 600;
+  }
+
+  td {
+    padding: 14px 12px;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.95rem;
+    color: #e2e8f0;
+  }
+
+  tr:hover td {
+    background: var(--bg-hover);
+  }
+
+  input[type='checkbox'] {
+    accent-color: var(--primary);
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+  }
+
+  /* --- 分页栏 (核心修复：默认横向) --- */
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    /* 左右分布 */
+    align-items: center;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid var(--border);
+  }
+
+  .page-ctrl {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .page-btn {
+    min-width: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    cursor: pointer;
+    color: var(--text-sub);
+    background: var(--bg-body);
+    user-select: none;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+  }
+
+  .page-btn:hover:not(.active) {
+    border-color: var(--text-main);
+    color: var(--text-main);
+  }
+
+  /* 核心修复：激活状态样式必须足够强 */
+  .page-btn.active {
+    background: var(--primary) !important;
+    border-color: var(--primary) !important;
+    color: white !important;
+    font-weight: bold;
+  }
+
+  .page-input {
+    width: 45px;
+    text-align: center;
+    padding: 4px;
+    height: 32px;
+    font-size: 0.9rem;
+  }
+
+  /* --- 导入面板 --- */
+  .import-box {
+    background: #0f172a;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+  }
+
+  /* PC端导入行默认横向 */
+  .import-row {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+  }
+
+  .import-col {
+    flex: 1;
+    min-width: 200px;
+  }
+
+  .mapping-row {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 15px;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .mapping-label {
+    text-align: right;
+    color: var(--text-sub);
+    font-size: 0.9rem;
+  }
+
+  /* --- 弹窗 (Modal) --- */
+  .modal-mask {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    backdrop-filter: blur(3px);
+  }
+
+  .modal {
+    background: var(--bg-card);
+    width: 450px;
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+    animation: popIn 0.2s ease-out;
+  }
+
+  @keyframes popIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .modal-title {
+    margin: 0 0 10px 0;
+    font-size: 1.1rem;
+    color: var(--text-main);
+  }
+
+  .modal-body {
+    color: var(--text-sub);
+    margin-bottom: 25px;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .modal-btns {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+
+  /* --- Toast --- */
+  .toast {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #10b981;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    transform: translateY(-100px);
+    transition: 0.3s;
+    z-index: 1000;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+  }
+
+  .toast.show {
+    transform: translateY(0);
+  }
+
+  .toast.error {
+    background: var(--danger);
+  }
+
+  /* 进度条 */
+  .progress-track {
+    background: var(--bg-body);
+    border: 1px solid var(--border);
+    height: 10px;
+    border-radius: 5px;
+    overflow: hidden;
+    margin: 10px 0;
+  }
+
+  .progress-fill {
+    background: var(--primary);
+    height: 100%;
+    width: 0%;
+    transition: width 0.3s;
+  }
+
+  /* =========================================
        移动端适配 (Max-Width: 768px)
        所有的竖排、堆叠逻辑只在这里生效
        ========================================= */
-	@media (max-width: 768px) {
-		body {
-			padding: 10px;
-		}
+  @media (max-width: 768px) {
+    body {
+      padding: 10px;
+    }
 
-		/* 1. 顶部 Header 保持左右分布 (核心修改) */
-		/* 移除 flex-direction: column，继承 PC 的 row */
-		.header {
-			gap: 10px;
-			/* 防止小屏幕文字拥挤，适当缩小标题 */
-		}
-		.header h2 {
-			font-size: 1.2rem;
-		}
-		.header h2 span {
-			display: none;
-		} /* 手机上隐藏 "Pro" 标签以节省空间 */
+    /* 1. 顶部 Header 保持左右分布 (核心修改) */
+    /* 移除 flex-direction: column，继承 PC 的 row */
+    .header {
+      gap: 10px;
+      /* 防止小屏幕文字拥挤，适当缩小标题 */
+    }
 
-		/* 2. 搜索框竖排 */
-		.search-area {
-			flex-direction: column;
-		}
-		.search-area button {
-			width: 100%;
-		}
+    .header h2 {
+      font-size: 1.2rem;
+    }
 
-		/* 3. 批量导入竖排 */
-		.import-row {
-			flex-direction: column;
-			gap: 10px;
-		}
+    .header h2 span {
+      display: none;
+    }
 
-		/* 4. 分页栏竖排转居中 */
-		.footer {
-			flex-direction: column;
-			gap: 15px;
-		}
-		.page-ctrl {
-			flex-wrap: wrap;
-			justify-content: center;
-			width: 100%;
-		}
+    /* 手机上隐藏 "Pro" 标签以节省空间 */
 
-		/* 5. 表格变卡片 */
-		thead {
-			display: none;
-		}
-		tr {
-			display: block;
-			background: var(--bg-card);
-			border: 1px solid var(--border);
-			margin-bottom: 15px;
-			border-radius: 8px;
-			padding: 10px;
-		}
-		td {
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-			padding: 8px 0;
-			border-bottom: 1px solid #33415540;
-			text-align: right;
-		}
-		td:last-child {
-			border-bottom: none;
-		}
-		td::before {
-			content: attr(data-label);
-			color: var(--text-sub);
-			font-size: 0.85rem;
-			font-weight: 600;
-			text-align: left;
-			margin-right: 15px;
-		}
+    /* 2. 搜索框竖排 */
+    .search-area {
+      flex-direction: column;
+    }
 
-		/* 6. 弹窗适配 */
-		.modal {
-			width: 90%;
-			padding: 20px;
-		}
-		.modal-btns {
-			flex-direction: column;
-		}
-		.modal-btns button {
-			width: 100%;
-		}
-	}
-	/* 修复 2：将 Toast 层级提至最高，超过验证码弹窗的 2000 */
-	.toast {
-		z-index: 9999 !important;
-	}
+    .search-area button {
+      width: 100%;
+    }
 
-	/* 修复 1：导出弹窗的自定义输入框样式优化 */
-	/* 确保下拉框和输入框在一行显示 */
-	.export-input-group {
-		display: flex;
-		gap: 10px;
-		align-items: center;
-		width: 100%;
-	}
-	.export-input-group select {
-		flex: 1; /* 默认占满，有输入框时自动缩小 */
-	}
-	.export-input-group input {
-		flex: 1; /* 输入框出现时，平分宽度 */
-	}
+    /* 3. 批量导入竖排 */
+    .import-row {
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    /* 4. 分页栏竖排转居中 */
+    .footer {
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .page-ctrl {
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 100%;
+    }
+
+    /* 5. 表格变卡片 */
+    thead {
+      display: none;
+    }
+
+    tr {
+      display: block;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      margin-bottom: 15px;
+      border-radius: 8px;
+      padding: 10px;
+    }
+
+    td {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 0;
+      border-bottom: 1px solid #33415540;
+      text-align: right;
+    }
+
+    td:last-child {
+      border-bottom: none;
+    }
+
+    td::before {
+      content: attr(data-label);
+      color: var(--text-sub);
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-align: left;
+      margin-right: 15px;
+    }
+
+    /* 6. 弹窗适配 */
+    .modal {
+      width: 90%;
+      padding: 20px;
+    }
+
+    .modal-btns {
+      flex-direction: column;
+    }
+
+    .modal-btns button {
+      width: 100%;
+    }
+  }
+
+  /* 修复 2：将 Toast 层级提至最高，超过验证码弹窗的 2000 */
+  .toast {
+    z-index: 9999 !important;
+  }
+
+  /* 修复 1：导出弹窗的自定义输入框样式优化 */
+  /* 确保下拉框和输入框在一行显示 */
+  .export-input-group {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    width: 100%;
+  }
+
+  .export-input-group select {
+    flex: 1;
+    /* 默认占满，有输入框时自动缩小 */
+  }
+
+  .export-input-group input {
+    flex: 1;
+    /* 输入框出现时，平分宽度 */
+  }
 </style>

@@ -134,8 +134,9 @@ function renderTable(data) {
   const isAdmin = !!localStorage.getItem('adminKey');
 
   let th = `<thead><tr>`;
-  if (isAdmin) th += `<th style="width:40px"><input type="checkbox" id="selectAll" onclick="toggleAll()"></th>`;
-  th += `<th>原形</th><th>过去式</th><th>过去分词</th><th>释义</th><th>备注</th>`;
+  if (isAdmin)
+    th += `<th style="width:40px"><input type="checkbox" id="selectAll" onclick="toggleAll()"></th>`;
+  th += `<th>原形</th><th>过去式</th><th>过去分词</th><th>现在分词</th><th>释义</th><th>备注</th>`;
   if (isAdmin) {
     const delBtn =
       selectedIds.size > 0
@@ -157,9 +158,9 @@ function renderTable(data) {
         <td data-label="原形" class="text-primary" style="font-weight:bold">${item.base_word}</td>
         <td data-label="过去式">${item.past_tense}</td>
         <td data-label="过去分词">${item.past_participle}</td>
-        <td data-label="释义">${item.definition || ''}</td>
+        <td data-label="现在分词">${item.present_participle || '-'}</td> <td data-label="释义">${item.definition || ''}</td>
         <td data-label="备注" style="color:var(--text-sub); font-size:0.85rem">${item.note || ''}</td>
-    `;
+      `;
       if (isAdmin)
         tr += `
         <td data-label="操作" style="text-align:right">
@@ -351,6 +352,7 @@ function renderMapping(previewRow) {
     { k: 'base', t: '单词原形 (Base)' },
     { k: 'past', t: '过去式 (Past)' },
     { k: 'part', t: '过去分词' },
+    { k: 'present', t: '现在分词 (ing)' }, // 新增
     { k: 'def', t: '中文释义' },
     { k: 'note', t: '备注' },
   ];
@@ -374,8 +376,12 @@ async function executeImport() {
 
   const mode = document.querySelector('input[name="importMode"]:checked').value;
   const payload = csvData.map((r) => ({
-    base: r[map.base] || '', past: r[map.past] || '', part: r[map.part] || '',
-    def: r[map.def] || '', note: r[map.note] || '',
+    base: r[map.base] || '',
+    past: r[map.past] || '',
+    part: r[map.part] || '',
+    present: r[map.present] || '', // 新增
+    def: r[map.def] || '',
+    note: r[map.note] || '',
   })).filter((i) => i.base);
 
   const btn = document.getElementById('btnStartImport');
@@ -440,6 +446,7 @@ function editItem(item) {
   document.getElementById('base').value = item.base_word;
   document.getElementById('past').value = item.past_tense;
   document.getElementById('part').value = item.past_participle;
+  document.getElementById('present').value = item.present_participle || '';
   document.getElementById('def').value = item.definition;
   document.getElementById('note').value = item.note || '';
   document.getElementById('adminPanel').classList.remove('hidden');
@@ -455,12 +462,13 @@ async function saveSingle() {
     base: document.getElementById('base').value.trim(),
     past: document.getElementById('past').value.trim(),
     part: document.getElementById('part').value.trim(),
+    present: document.getElementById('present').value.trim(), // 新增：获取值
     def: document.getElementById('def').value.trim(),
     note: document.getElementById('note').value.trim(),
   };
 
-  if (!body.base || !body.past || !body.part) {
-    return showToast('请填写完整 (原形/过去式/过去分词)', 'error');
+  if (!body.base || !body.past || !body.part || !body.present) {
+    return showToast('请填写完整 (原形/过去式/过去分词/现在分词)', 'error');
   }
 
   if (id) {
@@ -518,6 +526,11 @@ async function saveSingle() {
                     <td style="padding:8px; color:var(--text-sub)">过去分词</td>
                     <td style="padding:8px">${duplicate.past_participle}</td>
                     <td style="padding:8px; color:${duplicate.past_participle !== body.part ? 'var(--primary)' : 'inherit'}">${body.part}</td>
+                </tr>
+                <tr>
+                    <td style="padding:8px; color:var(--text-sub)">现在分词</td>
+                    <td style="padding:8px">${duplicate.present_participle || '-'}</td>
+                    <td style="padding:8px; color:${duplicate.present_participle !== body.present ? 'var(--primary)' : 'inherit'}">${body.present}</td>
                 </tr>
                 <tr>
                     <td style="padding:8px; color:var(--text-sub)">释义</td>
